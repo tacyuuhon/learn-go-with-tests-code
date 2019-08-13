@@ -4,16 +4,13 @@ import (
 	"testing"
 )
 
-func TestHelloOk(t *testing.T) {
-	testHello(t, "Hello, World!")
+func TestHello(t *testing.T) {
+	testHello(t, "Panda!")
 }
 
-func TestHelloFail(t *testing.T) {
-	testHello(t, "Welcome to Go world!")
-}
-
-func testHello(t *testing.T, want string) {
-	got := hello()
+func testHello(t *testing.T, name string) {
+	got := hello(name)
+	want := "Hello, " + name
 
 	if got != want {
 		t.Errorf("got '%s' want '%s'", got, want)
