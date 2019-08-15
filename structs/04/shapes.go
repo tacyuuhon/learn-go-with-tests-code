@@ -1,17 +1,34 @@
 package structs
 
+import "math"
+
 // Rectangle struct
 type Rectangle struct {
-	width  float64
-	height float64
+	Width  float64
+	Height float64
+}
+
+// Area method
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+// Circle struct
+type Circle struct {
+	Radius float64
+}
+
+// Area method
+func (c Circle) Area() float64 {
+	return (c.Radius * c.Radius) * math.Pi
 }
 
 // Premeter func
 func Premeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.width + rectangle.height)
+	return 2 * (rectangle.Width + rectangle.Height)
 }
 
 // Area func
 func Area(rectangle Rectangle) float64 {
-	return rectangle.width * rectangle.height
+	return rectangle.Width * rectangle.Height
 }
