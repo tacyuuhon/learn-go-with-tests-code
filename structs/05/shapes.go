@@ -23,11 +23,9 @@ func (c Circle) Area() float64 {
 	return (c.Radius * c.Radius) * math.Pi
 }
 
-type Shape struct {
-}
-
-func (s Shape) Area() float64 {
-	return 0.
+// Shape interface
+type Shape interface {
+	Area() float64
 }
 
 // Premeter func
