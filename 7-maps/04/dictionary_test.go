@@ -14,7 +14,6 @@ func TestSearch(t *testing.T) {
 	t.Run("unknown word", func(t *testing.T) {
 		_, got := dictionary.Search("unknown")
 		assertError(t, got, ErrNotFound)
-
 	})
 }
 
