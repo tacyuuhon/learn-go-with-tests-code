@@ -9,7 +9,7 @@ import (
 
 func TestPlayerServer(t *testing.T) {
 	t.Run("returns Pepper's score", func(t *testing.T) {
-		request, _ := http.NewRequest(http.MethodGet, "/players/Pepper", nil)
+		request := newGetScoreRequest("Pepper")
 		response := httptest.NewRecorder()
 
 		PlayerServer(response, request)
@@ -18,7 +18,7 @@ func TestPlayerServer(t *testing.T) {
 	})
 
 	t.Run("returns Floyd's score", func(t *testing.T) {
-		requet, _ := http.NewRequest(http.MethodGet, "/players/Floyd", nil)
+		requet := newGetScoreRequest("Floyd")
 		response := httptest.NewRecorder()
 
 		PlayerServer(response, requet)
