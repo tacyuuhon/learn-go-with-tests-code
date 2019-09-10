@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn16-command-line/v7"
+	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn17-time/v1"
 )
 
 func TestCLI(t *testing.T) {
