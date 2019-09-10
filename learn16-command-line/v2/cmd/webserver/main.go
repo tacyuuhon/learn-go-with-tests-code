@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn16-command-line/v1"
+	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn16-command-line/v2"
 )
 
 const dbFileName = "game.db.json"
