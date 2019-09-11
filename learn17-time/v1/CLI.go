@@ -4,24 +4,28 @@ import (
 	"bufio"
 	"io"
 	"strings"
+	"time"
 )
 
 // CLI struct
 type CLI struct {
 	playerStore PlayerStore
 	in          *bufio.Scanner
+	alerter     BlindAlerter
 }
 
 // NewCLI func
-func NewCLI(store PlayerStore, in io.Reader) *CLI {
+func NewCLI(store PlayerStore, in io.Reader, alerter BlindAlerter) *CLI {
 	return &CLI{
 		playerStore: store,
 		in:          bufio.NewScanner(in),
+		alerter:     alerter,
 	}
 }
 
 // PlayPoker func
 func (cli *CLI) PlayPoker() {
+	cli.alerter.ScheduleAlertAt(5*time.Second, 100)
 	userInput := cli.readline()
 	cli.playerStore.RecordWin(extractWinner(userInput))
 }
