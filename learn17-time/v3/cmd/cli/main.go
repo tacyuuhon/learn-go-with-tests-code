@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn17-time/v1"
+	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn17-time/v3"
 )
 
 const dbFileName = "game.db.json"
