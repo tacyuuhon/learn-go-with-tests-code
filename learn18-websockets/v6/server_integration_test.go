@@ -1,21 +1,21 @@
-package poker
+package poker_test
 
 import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-)
 
-const templatePath = "templates/"
+	poker "github.com/tacyuuhon/learn-go-with-tests-code/learn18-websockets/v6"
+)
 
 func TestRecordingWinsAndRetrievingThem(t *testing.T) {
 	database, cleanDatabase := createTempFile(t, `[]`)
 	defer cleanDatabase()
-	store, err := NewFileSystemPlayerStore(database)
+	store, err := poker.NewFileSystemPlayerStore(database)
 
 	assertNoError(t, err)
 
-	server := mustMakePlayerServer(t, store, templatePath)
+	server := mustMakePlayerServer(t, store, dummyGame)
 	player := "Pepper"
 
 	server.ServeHTTP(httptest.NewRecorder(), newPostWinRequest(player))
@@ -36,8 +36,8 @@ func TestRecordingWinsAndRetrievingThem(t *testing.T) {
 		assertStatus(t, response, http.StatusOK)
 
 		got := getLeagueFromResponse(t, response.Body)
-		want := []Player{
-			{"Pepper", 3},
+		want := []poker.Player{
+			{Name: "Pepper", Wins: 3},
 		}
 		assertLeague(t, got, want)
 	})
