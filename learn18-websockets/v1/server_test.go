@@ -143,7 +143,7 @@ func assertStatus(t *testing.T, got, want int) {
 }
 
 func newLeagueRequest() *http.Request {
-	req, _ := http.NewRequest(http.MethodGet, "/League", nil)
+	req, _ := http.NewRequest(http.MethodGet, "/league", nil)
 	return req
 }
 
